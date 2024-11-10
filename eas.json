@@ -13,6 +13,7 @@
     },
     "production": {
       "android": {
+        "image": "latest",
         "buildType": "apk"
       }
     }

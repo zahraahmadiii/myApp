@@ -8,6 +8,7 @@ import ImageScreen from './screen/ImageScreen';
 import AudioScreen from './screen/AudioScreen';
 import VideoScreen from './screen/VideoScreen';
 import TextScreen from './screen/TextScreen';
+import Galleryscreen from './screen/GalleryScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,7 +26,11 @@ export default function App() {
           component={ImageScreen}
         />
         <Stack.Screen
-          name="Camera"
+          name="Galleryscreen"
+          component={Galleryscreen}
+        />
+        <Stack.Screen
+          name="CameraScreen"
           component={CameraScreen}
         />
         <Stack.Screen

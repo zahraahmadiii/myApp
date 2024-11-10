@@ -4,28 +4,28 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as MediaLibrary from 'expo-media-library';
 import * as FileSystem from 'expo-file-system';
 
-export default function CameraScreen() {
-    const [cameraImageBase64, setCameraImageBase64] = useState(null);
+export default function Galleryscreen() {
+    const [galleryImageBase64, setGalleryImageBase64] = useState(null);
 
     useEffect(() => {
-        const loadCameraImage = async () => {
-            const base64 = await AsyncStorage.getItem('cameraImageBase64');
-            if (base64) setCameraImageBase64(base64);
+        const loadGalleryImage = async () => {
+            const base64 = await AsyncStorage.getItem('galleryImageBase64');
+            if (base64) setGalleryImageBase64(base64);
         };
-        loadCameraImage();
+        loadGalleryImage();
     }, []);
 
     // Save image to device's gallery
     const saveImageToGallery = async () => {
-        if (!cameraImageBase64) return;
+        if (!galleryImageBase64) return;
 
         // Request media library permission
         const { status } = await MediaLibrary.requestPermissionsAsync();
         if (status === 'granted') {
             try {
                 // Write Base64 data to a file in the file system
-                const fileUri = FileSystem.documentDirectory + 'cameraImage.jpg';
-                await FileSystem.writeAsStringAsync(fileUri, cameraImageBase64, {
+                const fileUri = FileSystem.documentDirectory + 'galleryImage.jpg';
+                await FileSystem.writeAsStringAsync(fileUri, galleryImageBase64, {
                     encoding: FileSystem.EncodingType.Base64,
                 });
 
@@ -43,14 +43,14 @@ export default function CameraScreen() {
 
     return (
         <View style={styles.container}>
-            <Text>Camera Image:</Text>
-            {cameraImageBase64 ? (
+            <Text>Gallery Image:</Text>
+            {galleryImageBase64 ? (
                 <Image
-                    source={{ uri: `data:image/jpeg;base64,${cameraImageBase64}` }}
+                    source={{ uri: `data:image/jpeg;base64,${galleryImageBase64}` }}
                     style={styles.image}
                 />
             ) : (
-                <Text>No picture taken.</Text>
+                <Text>No image selected from gallery.</Text>
             )}
             <Button title="Save to Gallery" onPress={saveImageToGallery} />
         </View>
