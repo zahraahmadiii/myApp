@@ -1,16 +1,27 @@
 {
   "expo": {
-    "name": "MyAwesomeApp",
-    "slug": "MyAwesomeApp",
+    "name": "My New App",
+    "slug": "my-new-app",
+    "owner": "zarahmadi",
     "version": "1.0.0",
     "orientation": "portrait",
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "updates": {
+      "enabled": true,
+      "checkAutomatically": "ON_LOAD"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -19,14 +30,11 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.zarahmadi.MyAwesomeApp"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
+      "package": "com.zarahmadi.mynewapp"
     },
     "extra": {
       "eas": {
-        "projectId": "1e03f9ce-7022-4ee3-81ce-1f7ad8e95c7e"
+        "projectId": "a5b79d34-5436-4f75-be9a-fdef83cc41a2"
       }
     }
   }

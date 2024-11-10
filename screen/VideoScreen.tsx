@@ -51,24 +51,24 @@ export default function VideoScreen({ navigation }) {
     };
 
     // Render video player if URI exists
-    const renderVideo = () => {
-        if (videoUri) {
-            return (
-                <View style={styles.videoContainer}>
-                    <Text style={styles.text}>Recorded Video</Text>
-                    <Video
-                        source={{ uri: videoUri }}
-                        style={styles.video}
-                        useNativeControls
-                        resizeMode="cover"  // Use "cover" or "stretch" if "contain" is causing issues
-                        isLooping
-                    />
+    // const renderVideo = () => {
+    //     if (videoUri) {
+    //         return (
+    //             <View style={styles.videoContainer}>
+    //                 <Text style={styles.text}>Recorded Video</Text>
+    //                 <Video
+    //                     source={{ uri: videoUri }}
+    //                     style={styles.video}
+    //                     useNativeControls
+    //                     resizeMode="cover"  // Use "cover" or "stretch" if "contain" is causing issues
+    //                     isLooping
+    //                 />
 
-                </View>
-            );
-        }
-        return null;
-    };
+    //             </View>
+    //         );
+    //     }
+    //     return null;
+    // };
 
     if (hasPermission === null) {
         return <View />;
@@ -84,7 +84,7 @@ export default function VideoScreen({ navigation }) {
 
             {/* Camera view */}
             <View style={styles.cameraContainer}>
-                <Camera style={styles.camera} type={Camera.Constants.Type.back} ref={cameraRef} />
+                {/* <Camera style={styles.camera} type={Camera.Constants.Type.back} ref={cameraRef} /> */}
             </View>
 
             {/* Button to start/stop recording */}
@@ -93,7 +93,7 @@ export default function VideoScreen({ navigation }) {
                 onPress={isRecording ? stopRecording : startRecording}
             />
 
-            {renderVideo()}
+            {/* {renderVideo()} */}
         </View>
     );
 }
